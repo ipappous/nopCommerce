@@ -1283,6 +1283,8 @@ namespace Nop.Web.Controllers
                 int rating = model.AddProductReview.Rating;
                 if (rating < 1 || rating > 5)
                     rating = _catalogSettings.DefaultProductRatingValue;
+
+
                 bool isApproved = !_catalogSettings.ProductReviewsMustBeApproved;
 
                 var productReview = new ProductReview
@@ -1292,6 +1294,10 @@ namespace Nop.Web.Controllers
                     Title = model.AddProductReview.Title,
                     ReviewText = model.AddProductReview.ReviewText,
                     Rating = rating,
+                    RateQuality = model.AddProductReview.RateQuality,
+                    RatePrinting = model.AddProductReview.RatePrinting,
+                    RatePackage = model.AddProductReview.RatePackage,
+                    RateDesign = model.AddProductReview.RateDesign,
                     HelpfulYesTotal = 0,
                     HelpfulNoTotal = 0,
                     IsApproved = isApproved,

@@ -42,6 +42,24 @@ namespace Nop.Core.Domain.Catalog
         public int Rating { get; set; }
 
         /// <summary>
+        /// Shoop shoop Packaging 
+        /// </summary>
+        public int? RatePackage { get; set; }
+        /// <summary>
+        /// Shoop shoop quality
+        /// </summary>
+        public int? RateQuality { get; set; }
+        /// <summary>
+        /// Shoop shoop Printing
+        /// </summary>
+        public int? RatePrinting { get; set; }
+        /// <summary>
+        /// Shoop shoop Design
+        /// </summary>
+        public int? RateDesign { get; set; }
+
+
+        /// <summary>
         /// Review helpful votes total
         /// </summary>
         public int HelpfulYesTotal { get; set; }

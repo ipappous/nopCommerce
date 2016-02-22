@@ -41,6 +41,20 @@
                                 @Html.RequiredHint()
                                 @Html.ValidationMessageFor(model => model.AddProductReview.Title)
                             </div>
+                            <div class="review-rating">
+                                @Html.LabelFor(model => model.AddProductReview.RateDesign, new { }, ":")
+                                <ul>
+                                    <li class="label first">@T("Reviews.Fields.Rating.Bad")</li>
+                                    <li class="rating-options">
+                                        @Html.RadioButtonFor(model => model.AddProductReview.RateDesign, "1")
+                                        @Html.RadioButtonFor(model => model.AddProductReview.RateDesign, "2")
+                                        @Html.RadioButtonFor(model => model.AddProductReview.RateDesign, "3")
+                                        @Html.RadioButtonFor(model => model.AddProductReview.RateDesign, "4")
+                                        @Html.RadioButtonFor(model => model.AddProductReview.RateDesign, "5")
+                                    </li>
+                                    <li class="label last">@T("Reviews.Fields.Rating.Excellent")</li>
+                                </ul>
+                            </div>
                             <div class="inputs">
                                 @Html.LabelFor(model => model.AddProductReview.ReviewText, new { }, ":")
                                 @Html.TextAreaFor(model => model.AddProductReview.ReviewText, Model.AddProductReview.CanCurrentCustomerLeaveReview ? (object)(new { @class = "review-text" }) : (object)(new { @class = "review-text", disabled = "disabled" }))

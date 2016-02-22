@@ -64,6 +64,11 @@ namespace Nop.Admin.Controllers
             var customer = productReview.Customer;
             model.CustomerInfo = customer.IsRegistered() ? customer.Email : _localizationService.GetResource("Admin.Customers.Guest");
             model.Rating = productReview.Rating;
+            model.RateDesign = productReview.RateDesign??-1;
+            model.RatePackage = productReview.RatePackage ?? -1;
+            model.RatePrinting = productReview.RatePrinting ?? -1;
+            model.RateQuality = productReview.RateQuality ?? -1;
+
             model.CreatedOn = _dateTimeHelper.ConvertToUserTime(productReview.CreatedOnUtc, DateTimeKind.Utc);
             if (!excludeProperties)
             {

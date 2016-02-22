@@ -78,6 +78,15 @@ namespace Nop.Web.Models.Catalog
         [NopResourceDisplayName("Reviews.Fields.Rating")]
         public int Rating { get; set; }
 
+        [NopResourceDisplayName("Reviews.Fields.RatePackage")]
+        public int RatePackage { get; set; }
+        [NopResourceDisplayName("Reviews.Fields.RateQuality")]
+        public int RateQuality { get; set; }
+        [NopResourceDisplayName("Reviews.Fields.RatePrinting")]
+        public int RatePrinting { get; set; }
+        [NopResourceDisplayName("Reviews.Fields.RateDesign")]
+        public int RateDesign { get; set; }
+
         public bool DisplayCaptcha { get; set; }
 
         public bool CanCurrentCustomerLeaveReview { get; set; }

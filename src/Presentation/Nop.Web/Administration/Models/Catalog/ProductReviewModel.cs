@@ -31,6 +31,16 @@ namespace Nop.Admin.Models.Catalog
         [NopResourceDisplayName("Admin.Catalog.ProductReviews.Fields.Rating")]
         public int Rating { get; set; }
 
+        [NopResourceDisplayName("Admin.Catalog.ProductReviews.Fields.RatePackage")]
+        public int RatePackage { get; set; }
+
+        [NopResourceDisplayName("Admin.Catalog.ProductReviews.Fields.RateQuality")]
+        public int RateQuality { get; set; }
+        [NopResourceDisplayName("Admin.Catalog.ProductReviews.Fields.RatePrinting")]
+        public int RatePrinting { get; set; }
+        [NopResourceDisplayName("Admin.Catalog.ProductReviews.Fields.RateDesign")]
+        public int RateDesign { get; set; }
+
         [NopResourceDisplayName("Admin.Catalog.ProductReviews.Fields.IsApproved")]
         public bool IsApproved { get; set; }
 
