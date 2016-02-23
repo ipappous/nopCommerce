@@ -1253,6 +1253,10 @@ namespace Nop.Web.Controllers
                 ModelState.AddModelError("", _localizationService.GetResource("Reviews.OnlyRegisteredUsersCanWriteReviews"));
             //default value
             model.AddProductReview.Rating = _catalogSettings.DefaultProductRatingValue;
+            model.AddProductReview.RateQuality = _catalogSettings.DefaultProductRatingValue;
+            model.AddProductReview.RateDesign = _catalogSettings.DefaultProductRatingValue;
+            model.AddProductReview.RatePackage = _catalogSettings.DefaultProductRatingValue;
+            model.AddProductReview.RatePrinting = _catalogSettings.DefaultProductRatingValue;
             return View(model);
         }
 
