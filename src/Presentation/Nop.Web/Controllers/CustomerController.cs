@@ -640,7 +640,7 @@ namespace Nop.Web.Controllers
             //validate CAPTCHA
             if (_captchaSettings.Enabled && _captchaSettings.ShowOnLoginPage && !captchaValid)
             {
-                ModelState.AddModelError("", _localizationService.GetResource("Common.WrongCaptcha"));
+                ModelState.AddModelError("", _captchaSettings.GetWrongCaptchaMessage(_localizationService));
             }
 
             if (ModelState.IsValid)
@@ -918,7 +918,7 @@ namespace Nop.Web.Controllers
             //validate CAPTCHA
             if (_captchaSettings.Enabled && _captchaSettings.ShowOnRegistrationPage && !captchaValid)
             {
-                ModelState.AddModelError("", _localizationService.GetResource("Common.WrongCaptcha"));
+                ModelState.AddModelError("", _captchaSettings.GetWrongCaptchaMessage(_localizationService));
             }
 
             if (ModelState.IsValid)
@@ -1390,6 +1390,8 @@ namespace Nop.Web.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [PublicAntiForgery]
         public ActionResult RemoveExternalAssociation(int id)
         {
             if (!_workContext.CurrentCustomer.IsRegistered())
@@ -1400,11 +1402,19 @@ namespace Nop.Web.Controllers
                 .FirstOrDefault(x => x.Id == id);
 
             if (ear == null)
-                return RedirectToAction("Info");
+            {
+                return Json(new
+                {
+                    redirect = Url.Action("Info"),
+                });
+            }
 
             _openAuthenticationService.DeletExternalAuthenticationRecord(ear);
 
-            return RedirectToAction("Info");
+            return Json(new
+            {
+                redirect = Url.Action("Info"),
+            });
         }
 
         #endregion
@@ -1441,6 +1451,7 @@ namespace Nop.Web.Controllers
         }
 
         [HttpPost]
+        [PublicAntiForgery]
         [NopHttpsRequirement(SslRequirement.Yes)]
         public ActionResult AddressDelete(int addressId)
         {
